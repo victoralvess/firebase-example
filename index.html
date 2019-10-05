@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RTDB - Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="columns">
+      <div class="column">
+        <table class="table is-fullwidth">
+          <thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </thead>
+          <tbody id="truckers-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="card">
+        <form class="card-content" onsubmit="handleSubmit(event, this)">
+          <div class="field">
+            <label class="label" for="name">Nome</label>
+            <div class="control">
+              <input class="input" type="text" name="name" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="status">Status de aprovação</label>
+            <div class="control">
+              <div class="select">
+                <select name="is_approved" required>
+                  <option value="1">Aprovado</option>
+                  <option value="0">Reprovado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary" type="submit">Adicionar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+    <script>
+      /* Pegar as configurações no projeto (Firebase Console) */
+      const firebaseConfig = {};
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
