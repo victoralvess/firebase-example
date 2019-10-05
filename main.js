@@ -6,6 +6,7 @@ const truckersTableBody = document.getElementById("truckers-table-body");
 truckers.on("value", snapshot => {
   const theTruckers = snapshot.val();
   clearTable();
+  if (!theTruckers) return
   Object.keys(theTruckers).map(id => {
     addTruckerToTable(Object.assign({}, { id }, theTruckers[id]));
   });
